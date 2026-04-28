@@ -1,0 +1,341 @@
+% ============================================================
+% Journal of Intelligent Systems: Theory and Applications
+% Article Preparation Template
+% ============================================================
+
+\documentclass[10pt,a4paper,twocolumn]{article}
+
+% ---------- Page geometry ----------
+\usepackage[
+  a4paper,
+  top=3cm,
+  bottom=2.5cm,
+  left=2cm,
+  right=2cm,
+  columnsep=0.6cm
+]{geometry}
+
+% ---------- Fonts (Times New Roman) ----------
+\usepackage{fontspec}          % requires XeLaTeX or LuaLaTeX
+\setmainfont{Times New Roman}
+
+% ---------- Language & encoding ----------
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{turkish}
+
+% ---------- Spacing ----------
+\usepackage{setspace}
+\singlespacing
+
+% ---------- Section heading formatting ----------
+\usepackage{titlesec}
+
+% Section: 12pt, bold, Title Case, 12pt before, 6pt after
+\titleformat{\section}
+  {\fontsize{12}{14}\selectfont\bfseries}
+  {\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% Subsection: 11pt, italic, Sentence case, 12pt before, 6pt after
+\titleformat{\subsection}
+  {\fontsize{11}{13}\selectfont\itshape}
+  {\thesubsection.}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+
+% ---------- Caption formatting ----------
+% Tables: 9pt, "Table X." bold, title normal, 12pt above / 3pt below
+% Figures: 9pt, "Figure X." bold, title normal, 6pt above / 12pt below
+\usepackage{caption}
+\DeclareCaptionFont{ninept}{\fontsize{9}{11}\selectfont}
+\captionsetup[table]{
+  font=ninept,
+  labelfont=bf,
+  labelsep=period,
+  skip=3pt,
+  position=above,
+  aboveskip=12pt
+}
+\captionsetup[figure]{
+  font=ninept,
+  labelfont=bf,
+  labelsep=period,
+  skip=6pt,
+  position=below,
+  aboveskip=6pt,
+  belowskip=12pt
+}
+
+% ---------- Tables ----------
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+
+% ---------- Figures ----------
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+
+% ---------- Equations ----------
+\usepackage{amsmath,amssymb}
+% Right-aligned equation numbers are the LaTeX default.
+% Add a blank line before and after each equation in your source.
+
+% ---------- References (Harvard author-date) ----------
+\usepackage[
+  style=authoryear,
+  sorting=nyt,
+  dashed=false,
+  maxbibnames=99,
+  minbibnames=3,
+  bibencoding=utf8,
+  backend=biber
+]{biblatex}
+% Source list: 9pt, 0.5cm hanging indent, single spacing
+\renewcommand*{\bibfont}{\fontsize{9}{11}\selectfont}
+\setlength{\bibhang}{0.5cm}
+\setlength{\bibnamesep}{0pt}
+\addbibresource{references.bib}   % <- put your .bib file name here
+
+% ---------- Hyperlinks ----------
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+
+% ---------- Miscellaneous ----------
+\usepackage{parskip}             % no paragraph indent, small skip
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+% ============================================================
+% CUSTOM COMMANDS
+% ============================================================
+
+% Title block (one-column, at the top of page 1)
+\newcommand{\articletitle}[1]{%
+  \twocolumn[{%
+    \begin{@twocolumnfalse}
+      % ---- Article title ----
+      {\fontsize{18}{27}\selectfont\bfseries #1\par}
+      \vspace{6pt}
+    \end{@twocolumnfalse}
+  }]%
+}
+
+% Author line
+\newcommand{\authorline}[1]{%
+  {\fontsize{11}{13}\selectfont #1\par}
+  \vspace{6pt}
+}
+
+% Affiliation line
+\newcommand{\affiliation}[1]{%
+  {\fontsize{9}{11}\selectfont\itshape #1\par}
+}
+
+% Abstract environment (9pt, bold heading, 70–250 words)
+\newenvironment{journalabstract}[1][Abstract]{%
+  \vspace{18pt}
+  {\fontsize{9}{11}\selectfont\bfseries #1\par}
+  \fontsize{9}{11}\selectfont
+}{%
+  \par
+}
+
+% Keywords line
+\newcommand{\keywords}[1]{%
+  \vspace{3pt}
+  {\fontsize{9}{11}\selectfont\textbf{Keywords:} #1\par}
+  \vspace{18pt}
+}
+
+% ============================================================
+\begin{document}
+
+% ============================================================
+% TITLE BLOCK  (one-column span)
+% ============================================================
+\twocolumn[{
+  \begin{@twocolumnfalse}
+
+    % ---- English title ----
+    {\fontsize{18}{27}\selectfont\bfseries
+      Title (Journal of Intelligent Systems: Theory and Applications
+      Article Preparation Template)\par}
+    \vspace{6pt}
+
+    % ---- Authors (hidden until acceptance) ----
+    {\fontsize{11}{13}\selectfont
+      Author information will be given after acceptance\par}
+    \vspace{6pt}
+
+    % ---- Affiliations ----
+    % {\fontsize{9}{11}\selectfont\itshape
+    %   $^1$Department, Institution, City, Country\par
+    %   $^2$Department, Institution, City, Country\par}
+    % \vspace{6pt}
+
+    % ==== English Abstract ====
+    \vspace{18pt}
+    {\fontsize{9}{11}\selectfont\bfseries Abstract\par}
+    {\fontsize{9}{11}\selectfont
+      This section should be prepared to summarize the contents of the
+      article with a minimum of 70 words and a maximum of 250 words.
+      The font should be Times New Roman font size 9 and should be set
+      to one-line spacing.\par}
+    \vspace{3pt}
+    {\fontsize{9}{11}\selectfont
+      \textbf{Keywords:} At least three keywords should be given.\par}
+    \vspace{18pt}
+
+    % ==== Turkish Title ====
+    {\fontsize{14}{21}\selectfont\bfseries
+      Türkçe Makale Başlığı\par}
+    \vspace{6pt}
+
+    % ==== Turkish Abstract ====
+    {\fontsize{9}{11}\selectfont\bfseries Öz\par}
+    {\fontsize{9}{11}\selectfont
+      Türkçe özetten sonra makalenin İngilizce özeti burada
+      verilmelidir. İngilizce özeti makale yazar(lar)ı gramer
+      kurallarına uygun olarak hatasız bir şekilde yazmalıdır.\par}
+    \vspace{3pt}
+    {\fontsize{9}{11}\selectfont
+      \textbf{Anahtar Kelimeler:} En az üç anahtar kelime
+      verilmelidir.\par}
+    \vspace{18pt}
+
+  \end{@twocolumnfalse}
+}]
+
+% ============================================================
+% BODY  (two-column)
+% ============================================================
+
+\section{Introduction}
+
+In order to reach the highest level of quality, authors should comply
+with the rules set out in this template.
+
+The template will be returned to the author for reorganization of the
+articles not prepared in accordance with the template. Returned
+articles must be returned after they have been arranged in accordance
+with the rules.
+
+% ============================================================
+\section{Preparation of the Manuscript}
+
+Articles containing incorrect, inaccurate or incomprehensible
+sentences shall be returned in writing to be arranged in the language.
+
+Times New Roman font (10\,pt, single line spacing and two-sided)
+should be used.
+
+% ----
+\subsection{Page Setup \normalfont\textit{(Sayfa Düzeni)}}
+
+The page size should be set to A4 (210\,×\,297\,mm). Page margins
+should be: Top 3\,cm, Bottom 2.5\,cm, Left 2\,cm, Right 2\,cm.
+
+% ----
+\subsection{Paper Title and Abstract \normalfont\textit{(Başlık ve Özet)}}
+
+The title of the article should be 18\,pt in Times New Roman font,
+bold and the first letters shall be large, with a space of 1.5 lines
+left, 18\,pt before and 6\,pt after.
+
+% ----
+\subsection{Section Titles \normalfont\textit{(Bölüm Başlıkları)}}
+
+Section headings should be typed in Times New Roman 12\,pt, bold,
+first letters large, single line spacing, 12\,pt before and 6\,pt
+after.
+
+% ----
+\subsection{Subsection Titles \normalfont\textit{(Alt Bölüm Başlıkları)}}
+
+Subtitle headings should be typed in Times New Roman 11\,pt, italic,
+only first letter big, left justified, single line spacing, 12\,pt
+before and 6\,pt after.
+
+% ----
+\subsection{Tables \normalfont\textit{(Tablolar)}}
+
+Tables should be placed within the specified page limits and numbered
+appropriately. The table heading should be placed above the table
+(9\,pt, label bold, 12\,pt before / 3\,pt after).
+
+\begin{table}[htbp]
+  \caption{Table title \textit{(English table title)}}
+  \centering
+  \fontsize{9}{11}\selectfont
+  \begin{tabular}{ll}
+    \toprule
+    Column Header 1 & Column Header 2 \\
+    \midrule
+    Sample Text 1   & Sample Text 2   \\
+    Sample Text 3   & Sample Text 4   \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% ----
+\subsection{Figures \normalfont\textit{(Şekiller)}}
+
+Figures should be prepared electronically and placed within specified
+page boundaries. The figure caption appears below the figure (9\,pt,
+label bold, 6\,pt above / 12\,pt below).
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=\linewidth]{your_figure}
+  \fbox{\rule{0pt}{2cm}\rule{0.8\linewidth}{0pt}} % placeholder
+  \caption{The caption of the figure \textit{(English caption)}}
+\end{figure}
+
+% ----
+\subsection{Equations \normalfont\textit{(Denklemler)}}
+
+Equations should be placed on a separate line and numbered
+consecutively in parentheses, right-aligned.
+
+\begin{equation}
+  a = b + c
+\end{equation}
+
+% ============================================================
+\section{Reference Text and Citations}
+
+References and citations should be prepared in accordance with the
+Harvard (Author, date) system. As an example:
+\parencite{Surname1Surname22013}. All sources must be cited in the
+text \parencite{Surname1etal2010}.
+
+Sources must be typed in 9\,pt, half-width, single-line spacing,
+0.5\,cm hanging indentation \parencite{Yilmaz2012}.
+
+% ============================================================
+\section{Conclusions}
+
+We hope that the information provided in this template will be useful
+in preparing your article.
+
+% ============================================================
+\section*{Acknowledgment}
+
+You can write here, if any, the people, institutions or supporters
+(you can specify support numbers and supporters) before the resources
+section.
+
+% ============================================================
+% REFERENCES
+% ============================================================
+\printbibliography[title={References}]
+
+% ============================================================
+% APPENDIX (if applicable – no new page, no section number)
+% ============================================================
+\section*{Appendix}
+
+If it exists, it should be written immediately after the reference
+section without going through the numbering and going to a new page.
+
+\end{document}
