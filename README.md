@@ -2,6 +2,8 @@
 
 LaTeX template for the **Journal of Intelligent Systems: Theory and Applications (JISTA)**, converted from the official Word preparation template.
 
+**Journal:** https://dergipark.org.tr/en/pub/jista
+
 ## Requirements
 
 - **XeLaTeX** (included in TeX Live 2022+ or MacTeX)
